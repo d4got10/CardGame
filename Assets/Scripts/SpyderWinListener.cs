@@ -10,12 +10,12 @@ namespace CardGame.Spyder
     {
         public UnityEvent OnWin;
 
-        [SerializeField] private PlaceHolder[] _holders;
+        private List<IWinListenable> _winListenables;
 
         private void Awake()
         {
-            var listenables = FindObjectsOfType<MonoBehaviour>().OfType<IWinListenable>().ToList();
-            foreach (var listenable in listenables)
+            _winListenables = FindObjectsOfType<MonoBehaviour>().OfType<IWinListenable>().ToList();
+            foreach (var listenable in _winListenables)
                 listenable.AddListener(this);
         }
 
@@ -24,8 +24,9 @@ namespace CardGame.Spyder
         public void CheckWin()
         {
             bool allHoldersAreEmpty = true;
-            foreach (var holder in _holders)
-                if (holder.StackedCard != null) allHoldersAreEmpty = false;
+            foreach (var winListenable in _winListenables)
+                if (!winListenable.GetWinState())
+                    allHoldersAreEmpty = false;
 
             if (allHoldersAreEmpty) OnWin?.Invoke();
         }

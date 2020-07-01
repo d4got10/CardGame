@@ -7,8 +7,8 @@ namespace CardGame.Spyder
 {
     public class ColumnHolder : PlaceHolder, IWinListenable
     {
-        public Action OnWin;
-        public void AddListener(IWinListener listener) => OnWin += listener.Listen;
+        public void AddListener(IWinListener listener) => OnBecameEmpty += listener.Listen;
+        public bool GetWinState() => StackedCard == null;
 
         public override bool CanBeStacked(Card parent, Card child) => (parent.Value == child.Value + 1);
 

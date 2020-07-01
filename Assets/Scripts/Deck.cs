@@ -91,7 +91,6 @@ namespace CardGame
         {
             GameObject card = _cardFactory.CreateCard(suit, value, hidden);
             var cardComponent = card.GetComponent<Card>();
-            cardComponent.GameRuler = _gameRuler;
 
             card.transform.parent = transform;
             card.transform.localPosition = position;

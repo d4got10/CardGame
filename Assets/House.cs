@@ -11,6 +11,9 @@ namespace CardGame.Scarf
 
         private void Awake() => StackedCardYOffset = 0;
 
+        public void AddListener(IWinListener listener) => OnWin += listener.Listen;
+        public bool GetWinState() => StackedCard.Value == Values.King;
+
         public override bool CanStack(Card card)
         {
             if (StackedCard == null)
@@ -29,7 +32,6 @@ namespace CardGame.Scarf
             return false;
         }
 
-        public override bool CardCanBeGrabbed(Card cardToGrab) => cardToGrab.StackedCard == null;
-        public void AddListener(IWinListener listener) => OnWin += listener.Listen;
+        public override bool CardCanBeGrabbed(Card cardToGrab) => cardToGrab.StackedCard == null;        
     }
 }

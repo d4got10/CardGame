@@ -22,13 +22,8 @@ namespace CardGame
 
         public Vector3 Position { get; private set; }
 
-        public bool IsWinnable = false;
-        public Action OnWin;
-
         public IStackable Parent { get; set; }
         public Card StackedCard { get; private set; }
-
-        public GameRuler GameRuler { get; set; }
 
         public delegate bool CanBeGrabbedFunctionDelegate(Card cardToGrab);
         public CanBeGrabbedFunctionDelegate CanBeGrabbedFunction;
@@ -72,22 +67,15 @@ namespace CardGame
             }
         }
 
-        public void Open() //Открывание карты лицо к верху
+        public void Open() //Открывание карты лицом к верху
         {
             _spriteRenderer.sprite = _faceSprite;
             Hidden = false;
-            if (Value == Values.King) IsWinnable = true;
         }
 
-        public void Win()
+        public void OnDestroy()
         {
-            if (Value == Values.King)
-            {
-                OnChangedParent?.Invoke(null);
-                Destroy(gameObject);
-            }
-
-            OnWin?.Invoke();
+            OnChangedParent?.Invoke(null);
         }
 
         public void MoveTo(Vector3 position)
@@ -113,13 +101,6 @@ namespace CardGame
 
                 StackedCard.MoveTo(new Vector3(0, -StackedCardYOffset, -0.1f));
 
-                if ((!Hidden && IsWinnable && StackedCard.Suit == Suit && card.Value == Value - 1) || StackedCard.Value == Values.King)
-                    StackedCard.IsWinnable = true;
-                else
-                    StackedCard.IsWinnable = false;
-
-                if (IsWinnable && Value == Values.Ace) Win();
-
                 card.PutDown();
                 StackedCard.OnChangedParent?.Invoke(this);
             }
@@ -136,12 +117,7 @@ namespace CardGame
             {
                 BoundChild(card);
 
-                StackedCard.transform.localPosition = new Vector3(0, -StackedCardYOffset, -0.1f);
-
-                if ((!Hidden && IsWinnable && StackedCard.Suit == Suit) || StackedCard.Value == Values.King)
-                    StackedCard.IsWinnable = true;
-                else
-                    StackedCard.IsWinnable = false;              
+                StackedCard.transform.localPosition = new Vector3(0, -StackedCardYOffset, -0.1f);            
 
                 OnAnyCardStacked?.Invoke();
 
@@ -163,7 +139,6 @@ namespace CardGame
             StackedCard.transform.parent = transform;
 
             StackedCard.OnChangedParent += UnStack;
-            StackedCard.OnWin += Win;
 
             OnPickedUp += StackedCard.PickUp;
             OnPutDown += StackedCard.PutDown;
@@ -177,7 +152,6 @@ namespace CardGame
                 OnPutDown -= StackedCard.PutDown;
 
                 StackedCard.OnChangedParent -= UnStack;
-                StackedCard.OnWin -= Win;
                 StackedCard = null;
 
                 if (Hidden) Open();
@@ -192,8 +166,6 @@ namespace CardGame
 
         public void PutDown() //Вызывается когда родитель был опущен
         {
-            if (StackedCard != null) StackedCard.IsWinnable = IsWinnable;
-            if (IsWinnable && Value == Values.Ace) Win();
             OnPutDown?.Invoke();
             GetComponent<BoxCollider2D>().enabled = true;
         }
@@ -214,8 +186,6 @@ namespace CardGame
             {
                 GetPlace();
                 _pickedUp = false;
-                if (StackedCard != null) StackedCard.IsWinnable = IsWinnable;
-                if (IsWinnable && Value == Values.Ace) Win();
                 OnPutDown?.Invoke();
             }
         }
@@ -249,7 +219,6 @@ namespace CardGame
                 if (stackable.Stack(this))
                 {
                     OnChangedParent?.Invoke(stackable);
-                    if (Value == Values.Ace && IsWinnable) Win();
                     Position = transform.localPosition;
                     return;
                 }

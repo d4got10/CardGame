@@ -72,7 +72,7 @@ namespace CardGame
 
             StackedCard.transform.parent = transform;
             StackedCard.OnChangedParent += UnStack;
-            StackedCard.IsWinnable = (StackedCard.Value == Values.King);
+
             StackedCard.StackedCardYOffset = StackedCardYOffset;
             GetComponent<BoxCollider2D>().enabled = false;
         }

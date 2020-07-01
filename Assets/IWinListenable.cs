@@ -3,5 +3,6 @@
     public interface IWinListenable
     {
         void AddListener(IWinListener listener);
+        bool GetWinState();
     }
 }

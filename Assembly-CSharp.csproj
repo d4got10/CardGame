@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\NextMoveHelper.cs" />
     <Compile Include="Assets\Scripts\PlaceHolder.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Spider\CardColumnRemover.cs" />
     <Compile Include="Assets\Scripts\Spider\ColumnHolder.cs" />
     <Compile Include="Assets\Scripts\SpyderWinListener.cs" />
     <Compile Include="Assets\SpiderRuler.cs" />
