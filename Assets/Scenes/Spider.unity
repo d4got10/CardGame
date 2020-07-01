@@ -1109,7 +1109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96a39627e75939499d88c891289bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winListener: {fileID: 1995701551}
 --- !u!4 &1120015737
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,18 +2159,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632226594}
   m_CullTransparentMesh: 0
---- !u!114 &1995701551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4822885730785273452, guid: 15128f99ebc39d54a9be8272a9d4f58d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4822885728796171075}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede06d15859f04149b74343317fad825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2018809476 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
@@ -2861,6 +2848,11 @@ PrefabInstance:
       propertyPath: _deck
       value: 
       objectReference: {fileID: 1506441684}
+    - target: {fileID: 602435655695023738, guid: 3f6182f5b88dd9048905a5853d648250,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f6182f5b88dd9048905a5853d648250, type: 3}
 --- !u!1001 &1216584069166561488
@@ -3178,6 +3170,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4822885730785273457, guid: 15128f99ebc39d54a9be8272a9d4f58d,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15128f99ebc39d54a9be8272a9d4f58d, type: 3}
 --- !u!1001 &8350042833280920274
@@ -3440,6 +3437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596615286308058798, guid: 721307bce6201b142b620f3576f0455c,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721307bce6201b142b620f3576f0455c, type: 3}

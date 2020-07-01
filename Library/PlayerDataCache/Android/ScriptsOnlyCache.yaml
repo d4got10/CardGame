@@ -1,20 +1,31 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Card
-    - CardAnimationFactory
-    - CardFactoryObject
-    - CardInspector
-    - ColumnHolder
-    - Deck
-    - DeckTypePicker
+    - CardGame.Card
+    - CardGame.CardAnimationFactory
+    - CardGame.CardFactoryObject
+    - CardGame.CardInspector
+    - CardGame.CardSpawner
+    - CardGame.Deck
+    - CardGame.DeckTypePicker
+    - CardGame.House
+    - CardGame.InspectableCard
+    - CardGame.MoveCounter
+    - CardGame.NextMoveHelper
+    - CardGame.Pocket
+    - CardGame.Scarf.ColumnHolder
+    - CardGame.Scarf.ScarfDeck
+    - CardGame.Scarf.ScarfRuler
+    - CardGame.Scarf.ShowCardHolder
+    - CardGame.Solitaire.SolitaireRuler
+    - CardGame.Spyder.CardColumnRemover
+    - CardGame.Spyder.ColumnHolder
+    - CardGame.Spyder.SpiderRuler
+    - CardGame.WinListener
+    - DebugWIN
     - GameTimer
-    - InspectableCard
     - LoseListener
-    - MoveCounter
-    - NextMoveHelper
     - SceneLoader
-    - WinListener
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -39,7 +50,220 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/MainMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9670}
+    - Class: 114
+      Script: {instanceID: 9838}
+    - Class: 114
+      Script: {instanceID: 9882}
+    - Class: 114
+      Script: {instanceID: 10292}
+    - Class: 114
+      Script: {instanceID: 10590}
+    - Class: 114
+      Script: {instanceID: 10668}
+    - Class: 114
+      Script: {instanceID: 11152}
+    - Class: 114
+      Script: {instanceID: 11532}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Scarf.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9670}
+    - Class: 114
+      Script: {instanceID: 9686}
+    - Class: 114
+      Script: {instanceID: 9810}
+    - Class: 114
+      Script: {instanceID: 9838}
+    - Class: 114
+      Script: {instanceID: 9854}
+    - Class: 114
+      Script: {instanceID: 9874}
+    - Class: 114
+      Script: {instanceID: 9882}
+    - Class: 114
+      Script: {instanceID: 10140}
+    - Class: 114
+      Script: {instanceID: 10154}
+    - Class: 114
+      Script: {instanceID: 10292}
+    - Class: 114
+      Script: {instanceID: 10312}
+    - Class: 114
+      Script: {instanceID: 10398}
+    - Class: 114
+      Script: {instanceID: 10590}
+    - Class: 114
+      Script: {instanceID: 10668}
+    - Class: 114
+      Script: {instanceID: 10974}
+    - Class: 114
+      Script: {instanceID: 11080}
+    - Class: 114
+      Script: {instanceID: 11132}
+    - Class: 114
+      Script: {instanceID: 11152}
+    - Class: 114
+      Script: {instanceID: 11360}
+    - Class: 114
+      Script: {instanceID: 11364}
+    - Class: 114
+      Script: {instanceID: 11390}
+    - Class: 114
+      Script: {instanceID: 11412}
+    - Class: 114
+      Script: {instanceID: 11532}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Solitaire.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9670}
+    - Class: 114
+      Script: {instanceID: 9686}
+    - Class: 114
+      Script: {instanceID: 9810}
+    - Class: 114
+      Script: {instanceID: 9838}
+    - Class: 114
+      Script: {instanceID: 9874}
+    - Class: 114
+      Script: {instanceID: 9882}
+    - Class: 114
+      Script: {instanceID: 9900}
+    - Class: 114
+      Script: {instanceID: 10140}
+    - Class: 114
+      Script: {instanceID: 10154}
+    - Class: 114
+      Script: {instanceID: 10292}
+    - Class: 114
+      Script: {instanceID: 10312}
+    - Class: 114
+      Script: {instanceID: 10590}
+    - Class: 114
+      Script: {instanceID: 10668}
+    - Class: 114
+      Script: {instanceID: 11080}
+    - Class: 114
+      Script: {instanceID: 11152}
+    - Class: 114
+      Script: {instanceID: 11360}
+    - Class: 114
+      Script: {instanceID: 11364}
+    - Class: 114
+      Script: {instanceID: 11390}
+    - Class: 114
+      Script: {instanceID: 11412}
+    - Class: 114
+      Script: {instanceID: 11532}
+    - Class: 114
+      Script: {instanceID: 19166}
+    - Class: 114
+      Script: {instanceID: 19266}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Spider.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -71,45 +295,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9670}
     - Class: 114
-      Script: {instanceID: 9806}
+      Script: {instanceID: 9810}
     - Class: 114
-      Script: {instanceID: 9834}
+      Script: {instanceID: 9838}
     - Class: 114
-      Script: {instanceID: 9868}
+      Script: {instanceID: 9874}
     - Class: 114
-      Script: {instanceID: 9876}
+      Script: {instanceID: 9882}
     - Class: 114
-      Script: {instanceID: 9894}
+      Script: {instanceID: 9900}
     - Class: 114
-      Script: {instanceID: 10114}
+      Script: {instanceID: 9942}
     - Class: 114
-      Script: {instanceID: 10144}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10194}
+      Script: {instanceID: 10154}
     - Class: 114
-      Script: {instanceID: 10282}
+      Script: {instanceID: 10292}
     - Class: 114
-      Script: {instanceID: 10302}
+      Script: {instanceID: 10312}
     - Class: 114
-      Script: {instanceID: 10576}
+      Script: {instanceID: 10590}
     - Class: 114
-      Script: {instanceID: 10652}
+      Script: {instanceID: 10596}
     - Class: 114
-      Script: {instanceID: 11060}
+      Script: {instanceID: 10668}
     - Class: 114
-      Script: {instanceID: 11112}
+      Script: {instanceID: 11012}
     - Class: 114
-      Script: {instanceID: 11130}
+      Script: {instanceID: 11080}
     - Class: 114
-      Script: {instanceID: 11184}
+      Script: {instanceID: 11134}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11366}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11388}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11508}
+      Script: {instanceID: 11390}
+    - Class: 114
+      Script: {instanceID: 11412}
+    - Class: 114
+      Script: {instanceID: 11532}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -137,6 +365,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 652297328a2443174d131581026a42ad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Scarf
+    className: ColumnHolder
   - hash:
       serializedVersion: 2
       Hash: 3c08375166df118bd1801438fc36b92f
@@ -171,7 +405,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 8adca8cce03cc050a28d0d4dc81b7882
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: CardFactoryObject
   - hash:
       serializedVersion: 2
@@ -193,6 +427,12 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
+      Hash: f49b7b8485a934ed19d7208e323a25df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DebugWIN
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -205,9 +445,9 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 43dd82d1c8476419766f3dde3a49bb13
+      Hash: 923fa4af42468ebc843fc23d2ee1719c
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: Card
   - hash:
       serializedVersion: 2
@@ -223,9 +463,9 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: ed575b9aa40776a2ede68ea087a642c5
+      Hash: eae878a88ef869e154a291f1d9f1bac0
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: Deck
   - hash:
       serializedVersion: 2
@@ -239,6 +479,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Spyder
+    className: SpiderRuler
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -291,8 +537,14 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 6ce72de15b496f3d89b8a5d337653c79
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: CardInspector
+  - hash:
+      serializedVersion: 2
+      Hash: 652297328a2443174d131581026a42ad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame
+    className: House
   - hash:
       serializedVersion: 2
       Hash: e0dc47a857ad234b428c1be8cd93a9e4
@@ -313,12 +565,6 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ColumnHolder
-  - hash:
-      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -337,9 +583,9 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 772907904b3e1ae329548192a286c3b7
+      Hash: d92c806e466c4a976701c17c2b312739
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: WinListener
   - hash:
       serializedVersion: 2
@@ -359,6 +605,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Scarf
+    className: ScarfRuler
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -395,6 +647,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 652297328a2443174d131581026a42ad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Spyder
+    className: ColumnHolder
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -469,9 +727,21 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 54c38c978ba7f32fc4a4572f3f5cc01f
+      Hash: 652297328a2443174d131581026a42ad
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame.Scarf
+    className: ShowCardHolder
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Spyder
+    className: CardColumnRemover
+  - hash:
+      serializedVersion: 2
+      Hash: 92764b771978943ce980251de6b4cb3b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame
     className: NextMoveHelper
   - hash:
       serializedVersion: 2
@@ -481,9 +751,15 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 86ce64a1d4a2493ea5d66c3dbc199aaf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Scarf
+    className: ScarfDeck
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: DeckTypePicker
   - hash:
       serializedVersion: 2
@@ -507,7 +783,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 76badbde773ff00466563e164df2b3af
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: CardAnimationFactory
   - hash:
       serializedVersion: 2
@@ -525,13 +801,19 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 8964f301a7654cf82d494cfcd27384bd
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: InspectableCard
+  - hash:
+      serializedVersion: 2
+      Hash: 19f312e542efc62ef06ca69c42442ea8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame
+    className: CardSpawner
   - hash:
       serializedVersion: 2
       Hash: a59ffccd5f5475539c4a7715750879f5
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: CardGame
     className: MoveCounter
   - hash:
       serializedVersion: 2
@@ -629,7 +911,22 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame.Solitaire
+    className: SolitaireRuler
+  - hash:
+      serializedVersion: 2
+      Hash: 652297328a2443174d131581026a42ad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CardGame
+    className: Pocket
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Danil/Solitaire/spider.apk
+  - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/Spider.unity
+  - Assets/Scenes/Scarf.unity
+  - Assets/Scenes/Solitaire.unity
+  playerPath: C:/Users/Danil/Solitaire/CardGame.apk

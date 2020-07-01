@@ -1854,6 +1854,11 @@ PrefabInstance:
       propertyPath: _deck
       value: 
       objectReference: {fileID: 8350042831604363265}
+    - target: {fileID: 602435655695023738, guid: 3f6182f5b88dd9048905a5853d648250,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f6182f5b88dd9048905a5853d648250, type: 3}
 --- !u!4 &1360419934 stripped
@@ -1891,11 +1896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed57a2c5845bf614b9a339833716302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _houses:
-  - {fileID: 5789647125321830346}
-  - {fileID: 1196650705}
-  - {fileID: 520253895}
-  - {fileID: 73628728}
 --- !u!4 &1424485680
 Transform:
   m_ObjectHideFlags: 0
@@ -2037,6 +2037,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_Lose
       objectReference: {fileID: 0}
+    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
+        type: 3}
+      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1639174960}
+    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
+        type: 3}
+      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
+        type: 3}
+      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1134007501}
+    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
+        type: 3}
+      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 8596615286308058784, guid: 721307bce6201b142b620f3576f0455c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2146,26 +2166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MatchWidthOrHeight
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
-        type: 3}
-      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1639174960}
-    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
-        type: 3}
-      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
-        type: 3}
-      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1134007501}
-    - target: {fileID: 8596615286308058797, guid: 721307bce6201b142b620f3576f0455c,
-        type: 3}
-      propertyPath: OnLose.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8596615285472478952, guid: 721307bce6201b142b620f3576f0455c,
         type: 3}
