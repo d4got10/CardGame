@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 namespace CardGame.Spyder
 {
-    public class SpyderWinListener : MonoBehaviour
+    public class SpyderWinListener : MonoBehaviour, IWinListener
     {
         public UnityEvent OnWin;
 
@@ -13,11 +14,12 @@ namespace CardGame.Spyder
 
         private void Awake()
         {
-            foreach (var holder in _holders)
-            {
-                holder.OnBecameEmpty += CheckWin;
-            }
+            var listenables = FindObjectsOfType<MonoBehaviour>().OfType<IWinListenable>().ToList();
+            foreach (var listenable in listenables)
+                listenable.AddListener(this);
         }
+
+        public void Listen() => CheckWin();
 
         public void CheckWin()
         {

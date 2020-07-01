@@ -6,7 +6,7 @@ namespace CardGame
 {
     public abstract class GameRuler : MonoBehaviour
     {
-        public Card.BoolFunctionDelegate CanBeGrabbedFunction;
+        public Card.CanBeGrabbedFunctionDelegate CanBeGrabbedFunction;
         public Card.CanBeStackedFunctionDelegate CanBeStackedFunction;
 
         private void Awake()

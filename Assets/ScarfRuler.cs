@@ -58,7 +58,7 @@ namespace CardGame.Scarf
             throw new System.NotImplementedException();
         }
 
-        private Suits[] GetDifferentColorSuit(Suits suit)
+        public static Suits[] GetDifferentColorSuit(Suits suit)
         {
             var suits = new Suits[2];
             if(Mathf.Abs((int)suit - 2.5f) < 1)

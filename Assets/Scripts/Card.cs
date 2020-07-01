@@ -30,8 +30,8 @@ namespace CardGame
 
         public GameRuler GameRuler { get; set; }
 
-        public delegate bool BoolFunctionDelegate();
-        public BoolFunctionDelegate CanBeGrabbedFunction;
+        public delegate bool CanBeGrabbedFunctionDelegate(Card cardToGrab);
+        public CanBeGrabbedFunctionDelegate CanBeGrabbedFunction;
 
         public delegate bool CanBeStackedFunctionDelegate(Card parent, Card child);
         public CanBeStackedFunctionDelegate CanBeStackedFunction;
@@ -57,15 +57,9 @@ namespace CardGame
             if (Hidden) _spriteRenderer.sprite = _backSprite;
         }
 
-        public bool CanBeGrabbed()
-        {
-            return CanBeGrabbedFunction();
-        }
+        public bool CanBeGrabbed() => CanBeGrabbedFunction(this);
 
-        public Vector3 GetStackedWorldPosition()
-        {
-            return transform.parent.position + Position - new Vector3(0, StackedCardYOffset, 0);
-        }
+        public Vector3 GetStackedWorldPosition() => transform.parent.position + Position - new Vector3(0, StackedCardYOffset, 0);
 
         private void Update()
         {

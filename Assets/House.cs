@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace CardGame.Scarf
 {
-    public class House : PlaceHolder
+    public class House : PlaceHolder, IWinListenable
     {
-        private List<Card> _stackedCards;
+        public Action OnWin;
+
+        private void Awake() => StackedCardYOffset = 0;
 
         public override bool CanStack(Card card)
         {
@@ -16,31 +19,17 @@ namespace CardGame.Scarf
                 return ((card.Suit == StackedCard.Suit) && (card.Value == StackedCard.Value + 1));
         }
 
-        private void OnMouseDown()
+        public override bool CanBeStacked(Card parent, Card child)
         {
-            StackedCard.OnMouseDown();
-        }
-
-        protected override void BoundChild(Card card)
-        {
-            if (_stackedCards == null)
-                _stackedCards = new List<Card>();
-
-            StackedCard = card;
-            StackedCard.transform.parent = transform;
-            StackedCard.OnChangedParent += UnStack;
-            StackedCard.IsWinnable = (StackedCard.Value == Values.King);
-            StackedCard.GetComponent<BoxCollider2D>().enabled = false;
-        }
-
-        public override void UnStack(IStackable newParent)
-        {
-            if((object)newParent != this)
+            if(parent.StackedCard == null)
             {
-                StackedCard.OnChangedParent -= UnStack;
-                _stackedCards.RemoveAt(_stackedCards.Count - 1);
-                StackedCard = _stackedCards[_stackedCards.Count - 1];
+                if (child.Suit == parent.Suit && child.Value + 1 == parent.Value)
+                    return true;
             }
+            return false;
         }
+
+        public override bool CardCanBeGrabbed(Card cardToGrab) => cardToGrab.StackedCard == null;
+        public void AddListener(IWinListener listener) => OnWin += listener.Listen;
     }
 }

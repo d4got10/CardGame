@@ -64,7 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CardSpawner.cs" />
+    <Compile Include="Assets\ColumnHolder.cs" />
     <Compile Include="Assets\House.cs" />
+    <Compile Include="Assets\IWinListenable.cs" />
+    <Compile Include="Assets\IWinListener.cs" />
     <Compile Include="Assets\ScarfRuler.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardAnimationFactory.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Assets\Scripts\NextMoveHelper.cs" />
     <Compile Include="Assets\Scripts\PlaceHolder.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Spider\ColumnHolder.cs" />
     <Compile Include="Assets\Scripts\SpyderWinListener.cs" />
     <Compile Include="Assets\SpiderRuler.cs" />
     <None Include="Assets\Videos\readme.txt" />

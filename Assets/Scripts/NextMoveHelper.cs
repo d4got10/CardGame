@@ -71,7 +71,7 @@ namespace CardGame
         {
             foreach (var card in cards)
             {
-                if (!card.CanBeGrabbed() || card.Hidden) continue;
+                if (card.Hidden || !card.CanBeGrabbed()) continue;
 
                 if (card.Value == Values.King)
                 {

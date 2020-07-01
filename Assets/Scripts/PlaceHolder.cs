@@ -5,11 +5,11 @@ using System;
 
 namespace CardGame
 {
-    public class PlaceHolder : MonoBehaviour, IStackable
+    public abstract class PlaceHolder : MonoBehaviour, IStackable
     {
         public float StackedCardYOffset = 0;
 
-        public Card.BoolFunctionDelegate CanBeGrabbedFunction;
+        public Card.CanBeGrabbedFunctionDelegate CanBeGrabbedFunction;
         public Card.CanBeStackedFunctionDelegate CanBeStackedFunction;
 
         public Card StackedCard { get; protected set; }
@@ -17,28 +17,18 @@ namespace CardGame
 
         private void Awake()
         {
-            GameRuler gameRuler = FindObjectOfType<GameRuler>();
-
-            CanBeGrabbedFunction = gameRuler.CanBeGrabbedFunction;
-            CanBeStackedFunction = gameRuler.CanBeStackedFunction;
+            CanBeGrabbedFunction = CardCanBeGrabbed;
+            CanBeStackedFunction = CanBeStacked;
         }
 
-        public bool CanBeGrabbed()
-        {
-            return false;
-        }
+        public abstract bool CardCanBeGrabbed(Card cardToGrab);
+        public abstract bool CanBeStacked(Card parent, Card child);
+        public abstract bool CanStack(Card card);
 
-        public Vector3 GetStackedWorldPosition()
-        {
-            return transform.position;
-        }
+        public bool CanBeGrabbed() => false;
+        public virtual Vector3 GetStackedWorldPosition() => transform.position;      
 
-        public virtual bool CanStack(Card card)
-        {
-            return true;
-        }
-
-        public void ForcedStack(Card card)
+        public virtual void ForcedStack(Card card)
         {
             if (StackedCard == null)
             {
@@ -59,21 +49,17 @@ namespace CardGame
 
         }
 
-        public bool Stack(Card card)
+        public virtual bool Stack(Card card)
         {
             if (StackedCard == null)
             {
-                if (CanBeStackedFunction(this, card))
-                {
-                    card.Parent = this;
+                card.Parent = this;
 
-                    BoundChild(card);
-                    StackedCard.transform.localPosition = new Vector3(0, 0f, -0.1f);
+                BoundChild(card);
+                StackedCard.transform.localPosition = new Vector3(0, 0f, -0.1f);
 
-                    return true;
-                }
+                return true;
             }
-
             return false;
         }
 
