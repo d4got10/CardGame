@@ -40,7 +40,7 @@ namespace CardGame
             }
 
             if (_moves.Count == 0)
-                _deck.AddCards();
+                _deck.OnClick();
             else
             {
                 var cardPair = _moves[_moveNumber % _moves.Count];
@@ -77,7 +77,7 @@ namespace CardGame
                 {
                     foreach (var holder in _holders)
                     {
-                        if (holder.StackedCard == null)
+                        if (holder.StackedCard == null && holder.CanStack(card))
                             _moves.Add((holder, card));
                     }
                 }
@@ -85,13 +85,16 @@ namespace CardGame
                 {
                     foreach (var holder in _holders)
                     {
-                        if (holder.StackedCard == null)
+                        if (holder.StackedCard == null && holder.CanStack(card))
                         {
                             _moves.Add((holder, card));
                         }
                     }
                     foreach (var parent in _checkedCards[card.Value + 1])
-                        _moves.Add((parent, card));
+                    {
+                        if(parent.CanBeStackedFunction(parent, card))
+                            _moves.Add((parent, card));
+                    }
                 }
             }
         }

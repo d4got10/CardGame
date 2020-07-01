@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 
-namespace CardGame.Spyder
+namespace CardGame
 {
-    public class SpyderWinListener : MonoBehaviour, IWinListener
+    public class WinListener : MonoBehaviour, IWinListener
     {
         public UnityEvent OnWin;
 

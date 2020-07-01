@@ -64,11 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CardSpawner.cs" />
-    <Compile Include="Assets\ColumnHolder.cs" />
+    <Compile Include="Assets\DebugWIN.cs" />
     <Compile Include="Assets\House.cs" />
     <Compile Include="Assets\IWinListenable.cs" />
     <Compile Include="Assets\IWinListener.cs" />
     <Compile Include="Assets\ScarfRuler.cs" />
+    <Compile Include="Assets\ScarfWinListener.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardAnimationFactory.cs" />
     <Compile Include="Assets\Scripts\CardFactoryObject.cs" />
@@ -83,10 +84,13 @@
     <Compile Include="Assets\Scripts\MoveCounter.cs" />
     <Compile Include="Assets\Scripts\NextMoveHelper.cs" />
     <Compile Include="Assets\Scripts\PlaceHolder.cs" />
+    <Compile Include="Assets\Scripts\Scarf\ColumnHolder.cs" />
+    <Compile Include="Assets\Scripts\Scarf\ScarfDeck.cs" />
+    <Compile Include="Assets\Scripts\Scarf\ShowCardHolder.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Spider\CardColumnRemover.cs" />
     <Compile Include="Assets\Scripts\Spider\ColumnHolder.cs" />
-    <Compile Include="Assets\Scripts\SpyderWinListener.cs" />
+    <Compile Include="Assets\Scripts\WinListener.cs" />
     <Compile Include="Assets\SpiderRuler.cs" />
     <None Include="Assets\Videos\readme.txt" />
     <Reference Include="Unity.Timeline.Editor">

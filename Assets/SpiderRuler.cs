@@ -6,7 +6,7 @@ namespace CardGame.Spyder
 {
     public class SpiderRuler : GameRuler
     {
-        [SerializeField] private SpyderWinListener _winListener;
+        [SerializeField] private WinListener _winListener;
 
         public override bool CanBeStacked(Card parent, Card child)
         {

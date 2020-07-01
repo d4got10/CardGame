@@ -7,7 +7,7 @@ namespace CardGame
 {
     public abstract class PlaceHolder : MonoBehaviour, IStackable
     {
-        public float StackedCardYOffset = 0;
+        public Vector3 StackedCardOffset = new Vector3();
 
         public Card.CanBeGrabbedFunctionDelegate CanBeGrabbedFunction;
         public Card.CanBeStackedFunctionDelegate CanBeStackedFunction;
@@ -51,7 +51,7 @@ namespace CardGame
 
         public virtual bool Stack(Card card)
         {
-            if (StackedCard == null)
+            if (StackedCard == null && CanStack(card))
             {
                 card.Parent = this;
 
@@ -73,7 +73,7 @@ namespace CardGame
             StackedCard.transform.parent = transform;
             StackedCard.OnChangedParent += UnStack;
 
-            StackedCard.StackedCardYOffset = StackedCardYOffset;
+            StackedCard.StackedCardOffset = StackedCardOffset;
             GetComponent<BoxCollider2D>().enabled = false;
         }
 

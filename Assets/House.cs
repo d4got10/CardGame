@@ -7,12 +7,25 @@ namespace CardGame.Scarf
 {
     public class House : PlaceHolder, IWinListenable
     {
-        public Action OnWin;
+        public Action OnWinCheck;
 
-        private void Awake() => StackedCardYOffset = 0;
-
-        public void AddListener(IWinListener listener) => OnWin += listener.Listen;
-        public bool GetWinState() => StackedCard.Value == Values.King;
+        public void AddListener(IWinListener listener) => Card.OnAnyCardChangedPlace += listener.Listen;
+        public bool GetWinState()
+        {
+            Card prevCard = StackedCard;
+            if (prevCard != null)
+            {
+                Card card = prevCard.StackedCard;
+                while (card != null && card.Value == prevCard.Value + 1)
+                {
+                    prevCard = card;
+                    card = card.StackedCard;
+                }
+                if (prevCard.Value == Values.King)
+                    return true;
+            }
+            return false;
+        }
 
         public override bool CanStack(Card card)
         {
@@ -26,12 +39,14 @@ namespace CardGame.Scarf
         {
             if(parent.StackedCard == null)
             {
-                if (child.Suit == parent.Suit && child.Value + 1 == parent.Value)
+                if (child.Suit == parent.Suit && child.Value - 1 == parent.Value)
+                {
                     return true;
+                }
             }
             return false;
         }
 
-        public override bool CardCanBeGrabbed(Card cardToGrab) => cardToGrab.StackedCard == null;        
+        public override bool CardCanBeGrabbed(Card cardToGrab) => cardToGrab.StackedCard == null;    
     }
 }

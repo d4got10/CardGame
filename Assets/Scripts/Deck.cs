@@ -98,7 +98,12 @@ namespace CardGame
             return cardComponent;
         }
 
-        public void AddCards()
+        public virtual void OnClick()
+        {
+            AddCards();
+        }
+
+        public virtual void AddCards()
         {
             if (!HasStartedGame) return;
 
@@ -125,7 +130,7 @@ namespace CardGame
 
         private void OnMouseDown()
         {
-            AddCards();
+            OnClick();
         }
 
         private List<Card> Shuffle(List<Card> deck)

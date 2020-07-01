@@ -10,7 +10,7 @@ namespace CardGame
         public static Action OnAnyCardChangedPlace;
         public static Action OnAnyCardStacked;
 
-        public float StackedCardYOffset;
+        public Vector3 StackedCardOffset;
 
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Sprite _backSprite;
@@ -54,7 +54,7 @@ namespace CardGame
 
         public bool CanBeGrabbed() => CanBeGrabbedFunction(this);
 
-        public Vector3 GetStackedWorldPosition() => transform.parent.position + Position - new Vector3(0, StackedCardYOffset, 0);
+        public Vector3 GetStackedWorldPosition() => transform.parent.position + Position - StackedCardOffset;
 
         private void Update()
         {
@@ -99,7 +99,7 @@ namespace CardGame
 
                 BoundChild(card);
 
-                StackedCard.MoveTo(new Vector3(0, -StackedCardYOffset, -0.1f));
+                StackedCard.MoveTo(-StackedCardOffset + new Vector3(0, 0, -0.1f));
 
                 card.PutDown();
                 StackedCard.OnChangedParent?.Invoke(this);
@@ -117,7 +117,7 @@ namespace CardGame
             {
                 BoundChild(card);
 
-                StackedCard.transform.localPosition = new Vector3(0, -StackedCardYOffset, -0.1f);            
+                StackedCard.transform.localPosition = -StackedCardOffset + new Vector3(0, 0, -0.1f);            
 
                 OnAnyCardStacked?.Invoke();
 
@@ -131,7 +131,7 @@ namespace CardGame
         {
             card.Parent = this;
 
-            card.StackedCardYOffset = StackedCardYOffset;
+            card.StackedCardOffset = StackedCardOffset;
             card.CanBeGrabbedFunction = CanBeGrabbedFunction;
             card.CanBeStackedFunction = CanBeStackedFunction;
 
